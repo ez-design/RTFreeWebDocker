@@ -1,0 +1,21 @@
+# mysql
+mysql:
+  container_name: mysql
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+
+# rtfreeweb
+rtfreeweb:
+  container_name: rtfreeweb
+  build: .
+#  image: ezdesign/rtfreeweb
+  links:
+    - mysql:mysql
+  ports:
+    - "5001:5000"
+  environment:
+    MYSQL_HOST: mysql
+    MYSQL_USER: root
+    MYSQL_PASSWORD: password
+    RTFreeWebConnectionString: server=mysql;database=rtfree;uid=root;pwd=password;

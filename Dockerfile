@@ -19,9 +19,10 @@ RUN yum -y install git libunwind libicu freetype-devel jpeglib-devel giflib-deve
     curl -o lib/pdf/xpdf-3.04.tar.gz ftp://ftp.foolabs.com/pub/xpdf/xpdf-3.04.tar.gz && \
     ./configure --libdir=/usr/lib64 --bindir=/usr/bin && \
     make && \
-    make install
+    make install &&
+    mkdir /RTFreeWeb/wwwroot/records
 COPY docker-entrypoint.sh /
 RUN chmod 766 /docker-entrypoint.sh
-ENV RTFreeWebBin dotnet /RTFree/RTFree.dll
-EXPOSE 5000
 ENTRYPOINT ["/docker-entrypoint.sh"]
+EXPOSE 5000
+CMD ["dotnet", "/RTFreeWeb/RTFreeWeb.dll"]

@@ -8,14 +8,15 @@ mysql:
 # rtfreeweb
 rtfreeweb:
   container_name: rtfreeweb
-  build: .
-#  image: ezdesign/rtfreeweb
+＃  build: .
+  image: ezdesign/rtfreeweb
   links:
     - mysql:mysql
   ports:
-    - "5001:5000"
+    - "5000:5000"
   environment:
     MYSQL_HOST: mysql
     MYSQL_USER: root
     MYSQL_PASSWORD: password
-    RTFreeWebConnectionString: server=mysql;database=rtfree;uid=root;pwd=password;
+    RTFreeWebConnectionString: server=mysql;database=rtfreeweb;uid=root;pwd=password;
+    RTFreeWebBin: /RTFree/RTFree.dll

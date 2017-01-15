@@ -2,7 +2,7 @@
 mkdir /src/
 cd /src/
 git clone https://github.com/ez-design/RTFree.git
-git clone -b develop https://github.com/ez-design/RTFreeWeb.git
+git clone https://github.com/ez-design/RTFreeWeb.git
 cd /src/RTFree/
 dotnet restore
 dotnet publish -o /RTFree/

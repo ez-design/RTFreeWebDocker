@@ -1,3 +1,7 @@
+rtfreeweb_data:
+  container_name: rtfreeweb_data
+  image: busybox
+
 # mysql
 mysql:
   container_name: mysql
@@ -8,8 +12,9 @@ mysql:
 # rtfreeweb
 rtfreeweb:
   container_name: rtfreeweb
-＃  build: .
   image: ezdesign/rtfreeweb
+  volumes:
+    - rtfreeweb_data:/RTFreeWeb/wwwroot/records
   links:
     - mysql:mysql
   ports:
@@ -18,5 +23,5 @@ rtfreeweb:
     MYSQL_HOST: mysql
     MYSQL_USER: root
     MYSQL_PASSWORD: password
-    RTFreeWebConnectionString: server=mysql;database=rtfreeweb;uid=root;pwd=password;
-    RTFreeWebBin: /RTFree/RTFree.dll
+    RTFreeWeb_ConnectionString: server=mysql;database=rtfreeweb;uid=root;pwd=password;
+    RTFreeWeb_RTFreePath: /RTFree/RTFree.dll

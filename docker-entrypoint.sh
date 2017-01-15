@@ -1,5 +1,4 @@
 #!/bin/bash
-rm -rf /src
 mkdir /src/
 cd /src/
 git clone https://github.com/ez-design/RTFree.git
